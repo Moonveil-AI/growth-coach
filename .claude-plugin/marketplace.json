@@ -1,0 +1,17 @@
+{
+  "name": "growth-coach",
+  "owner": {
+    "name": "Moonveil",
+    "url": "https://moonveil.ai"
+  },
+  "plugins": [
+    {
+      "name": "growth-coach",
+      "source": "./",
+      "description": "AI growth consultant for technical founders. Diagnoses business problems, finds the right playbook, and writes personalized action plans.",
+      "version": "0.1.0",
+      "category": "business",
+      "tags": ["growth", "marketing", "founder", "startup"]
+    }
+  ]
+}

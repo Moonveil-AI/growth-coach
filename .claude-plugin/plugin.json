@@ -1,0 +1,20 @@
+{
+  "name": "growth-coach",
+  "version": "0.1.0",
+  "description": "AI growth consultant for technical founders. Diagnoses business problems, finds the right playbook, and writes personalized action plans.",
+  "author": {
+    "name": "Moonveil",
+    "url": "https://moonveil.ai"
+  },
+  "homepage": "https://github.com/Moonveil-AI/growth-coach",
+  "repository": "https://github.com/Moonveil-AI/growth-coach",
+  "license": "MIT",
+  "keywords": [
+    "growth",
+    "marketing",
+    "founder",
+    "startup",
+    "coach",
+    "consultant"
+  ]
+}
