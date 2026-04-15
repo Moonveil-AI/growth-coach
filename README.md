@@ -69,14 +69,6 @@ Growth Coach will:
 
 **Need more than 50 queries?** Contact us for a Standard key (500 queries).
 
-## Manual install (if you prefer)
-
-```bash
-mkdir -p ~/.claude/skills/growth-coach
-curl -o ~/.claude/skills/growth-coach/SKILL.md \
-  https://raw.githubusercontent.com/Moonveil-AI/growth-coach/main/skills/growth-coach/SKILL.md
-```
-
 ## Links
 
 - Built by [Moonveil](https://moonveil.ai)
