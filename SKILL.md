@@ -51,9 +51,9 @@ Where:
 - `{API_KEY}` = the user's API key from environment variable `GROWTHPILOT_API_KEY`
 
 Rephrase the user's question into a good search query. For example:
-- User: "Nobody's signing up for my SaaS" → Query: "SaaS 用户获取 增长 注册转化率低"
-- User: "Should I raise money?" → Query: "融资时机判断 创业融资准备"
-- User: "I'm burning out" → Query: "创始人 burnout 防止 可持续工作节奏"
+- User: "Nobody's signing up for my SaaS" → Query: "SaaS user acquisition low signup conversion"
+- User: "Should I raise money?" → Query: "fundraising timing founder fundraising readiness"
+- User: "I'm burning out" → Query: "founder burnout prevention sustainable work pace"
 
 ## Step 3: Analyze and respond
 
@@ -100,7 +100,7 @@ After each successful retrieval, the API returns remaining quota. If remaining <
 
 **User:** "I built a developer tool for API monitoring but I only have 12 users after 2 months. How do I get more?"
 
-**You (internally):** Retrieve strategies for "开发者工具 用户增长 早期获客 PLG"
+**You (internally):** Retrieve strategies for "developer tool user growth early acquisition PLG"
 
 **Your response:**
 
