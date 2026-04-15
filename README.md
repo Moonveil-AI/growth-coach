@@ -15,4 +15,3 @@ Then in Claude Code, run `/growth-coach` and describe your situation.
 ## Links
 
 - Built by [Moonveil](https://moonveil.ai)
-- More skills at [ClaudeSkills.ai](https://claudeskills.ai)
