@@ -9,7 +9,7 @@
       "name": "growth-coach",
       "source": "./",
       "description": "AI growth consultant for technical founders. Diagnoses business problems, finds the right playbook, and writes personalized action plans.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "business",
       "tags": ["growth", "marketing", "founder", "startup"]
     }

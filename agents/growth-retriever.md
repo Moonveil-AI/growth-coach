@@ -12,15 +12,25 @@ The main agent will give you:
 - The user's business context (product, stage, numbers if available)
 - Their specific challenge
 
-## Step 1: Check for API key
+## Step 1: Verify API key (safe check only)
 
-Verify `GROWTHPILOT_API_KEY` is set in the environment.
+Run this exact Bash command — it prints only `SET` or `MISSING` and never leaks the key value:
 
-If missing, return only:
-> I need a GrowthPilot API key to retrieve strategies. Set it with `export GROWTHPILOT_API_KEY=gp_xxxxx`. Get a free key (50 queries) by running:
+```bash
+[ -n "$GROWTHPILOT_API_KEY" ] && echo SET || echo MISSING
+```
+
+**Never** use `echo $GROWTHPILOT_API_KEY`, `env | grep GROWTHPILOT`, or `${VAR:+x}${VAR:-y}` — all of these echo the actual key to the transcript. The check above is the only sanctioned form.
+
+If the result is `MISSING`, return this message and stop:
+
+> Growth Coach needs a free API key. Run:
+> ```bash
+> curl -X POST https://vsupglh6auvkijhzmdwanruiba0aiuzg.lambda-url.us-west-2.on.aws/auth/register-free \
+>   -H "Content-Type: application/json" \
+>   -d '{"email": "you@example.com"}'
 > ```
-> curl -X POST https://vsupglh6auvkijhzmdwanruiba0aiuzg.lambda-url.us-west-2.on.aws/auth/register-free -H "Content-Type: application/json" -d '{"email": "you@example.com"}'
-> ```
+> Then `export GROWTHPILOT_API_KEY=gp_xxxxx` (add to `~/.zshrc`) and retry.
 
 ## Step 2: Call the API silently
 
