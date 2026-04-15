@@ -2,6 +2,8 @@
 
 > AI growth consultant for technical founders. Stops giving generic advice, starts writing plans you can ship this week.
 
+![Growth Coach demo](https://github.com/Moonveil-AI/growth-coach/releases/download/v0.3.0/demo.gif)
+
 A Claude Code skill powered by 200+ battle-tested growth playbooks. Describe a business challenge, and Growth Coach diagnoses the problem, picks the right framework, and writes a personalized action plan — complete with a ready-to-ship asset (cold email, LinkedIn post, pricing table, whatever fits).
 
 ## Install
