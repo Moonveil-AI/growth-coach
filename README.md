@@ -4,7 +4,7 @@
 
 ![Growth Coach demo](./demo.gif)
 
-A Claude Code skill powered by 200+ battle-tested growth playbooks. Describe a business challenge and Growth Coach diagnoses the problem, picks the right framework, and writes an action plan — with a ready-to-ship asset included (cold email, LinkedIn post, pricing table, whatever fits).
+A Claude Code skill powered by 1000+ battle-tested growth playbooks. Describe a business challenge and Growth Coach diagnoses the problem, picks the right framework, and writes an action plan — with a ready-to-ship asset included (cold email, LinkedIn post, pricing table, whatever fits).
 
 ## Install
 
@@ -31,7 +31,7 @@ Product-market fit · acquisition (SEO, LinkedIn, cold outreach, PLG, referrals)
 
 ## Need more than 50 queries?
 
-Contact [Moonveil](https://moonveil.ai) for a Standard key (500 queries).
+Contact [Moonveil](https://moonveil.ai) for an unlimited key — no cap, no expiry.
 
 ## Links
 
