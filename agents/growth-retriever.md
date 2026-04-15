@@ -14,23 +14,19 @@ The main agent will give you:
 
 ## Step 1: Verify API key (safe check only)
 
-Run this exact Bash command — it prints only `SET` or `MISSING` and never leaks the key value:
+Run this exact Bash command — it prints only `SET` or `MISSING` and never leaks the key:
 
 ```bash
-[ -n "$GROWTHPILOT_API_KEY" ] && echo SET || echo MISSING
+if [ -n "$GROWTHPILOT_API_KEY" ] || [ -s "$HOME/.growthpilot/api_key" ]; then echo SET; else echo MISSING; fi
 ```
 
-**Never** use `echo $GROWTHPILOT_API_KEY`, `env | grep GROWTHPILOT`, or `${VAR:+x}${VAR:-y}` — all of these echo the actual key to the transcript. The check above is the only sanctioned form.
+**Never** use `echo $GROWTHPILOT_API_KEY`, `env | grep GROWTHPILOT`, `${VAR:+x}${VAR:-y}`, or `cat ~/.growthpilot/api_key` — all leak the actual key. The check above is the only sanctioned form.
 
-If the result is `MISSING`, return this message and stop:
+If the result is `MISSING`, return only:
 
-> Growth Coach needs a free API key. Run:
-> ```bash
-> curl -X POST https://vsupglh6auvkijhzmdwanruiba0aiuzg.lambda-url.us-west-2.on.aws/auth/register-free \
->   -H "Content-Type: application/json" \
->   -d '{"email": "you@example.com"}'
-> ```
-> Then `export GROWTHPILOT_API_KEY=gp_xxxxx` (add to `~/.zshrc`) and retry.
+> No API key found. Please go back and let the main Growth Coach flow register one for you, or run the `register-free` endpoint manually.
+
+And stop. (The main agent should have handled registration in Step 2 of SKILL.md before reaching this subagent.)
 
 ## Step 2: Call the API silently
 
@@ -39,16 +35,19 @@ Rephrase the user's challenge into a concise search query (5-10 words). Examples
 - "Should I raise money?" → `fundraising timing founder readiness`
 - "I'm burning out" → `founder burnout prevention sustainable pace`
 
-Then use the Bash tool to POST the query. **Write the response to a temp file so the raw JSON doesn't flood output**:
+Then use the Bash tool to POST the query. Resolve the key inline from the env var *or* the on-disk file, and pipe to curl **without printing it** — `$AUTH` is a local shell variable, never echo it:
 
 ```bash
+AUTH="${GROWTHPILOT_API_KEY:-$(cat "$HOME/.growthpilot/api_key")}" && \
 curl -s -X POST https://vsupglh6auvkijhzmdwanruiba0aiuzg.lambda-url.us-west-2.on.aws/retrieve \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: $GROWTHPILOT_API_KEY" \
+  -H "X-API-Key: $AUTH" \
   -d '{"query": "<YOUR QUERY>", "n": 5}' \
   -o /tmp/gp-response.json \
   -w "%{http_code}"
 ```
+
+Run the command as one line — do NOT split it into multiple steps, and do NOT `echo "$AUTH"` for debugging.
 
 Check the HTTP status code:
 - `200`: continue
